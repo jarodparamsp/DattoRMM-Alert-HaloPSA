@@ -310,8 +310,6 @@ Function Get-AlertEmailBody($AlertWebhook) {
 
     $NumberOfColumns = $env:NumberOfColumns
 
-    $AlertTroubleshooting = $AlertWebhook.troubleshootingNote
-    $AlertDocumentationURL = $AlertWebhook.docURL
     $ShowDeviceDetails = $AlertWebhook.showDeviceDetails
     $ShowDeviceStatus = $AlertWebhook.showDeviceStatus
     $ShowAlertDetails = $AlertWebhook.showAlertDetails
@@ -354,7 +352,7 @@ Function Get-AlertEmailBody($AlertWebhook) {
         $DeviceAudit = Get-DrmmAuditDevice -deviceUid $Alert.alertSourceInfo.deviceUid
 
         # Build the alert details section
-        Get-DRMMAlertDetailsSection -Sections $Sections -Alert $Alert -Device $Device -AlertDocumentationURL $AlertDocumentationURL -AlertTroubleshooting $AlertTroubleshooting -DattoPlatform $DattoPlatform
+        Get-DRMMAlertDetailsSection -Sections $Sections -Alert $Alert -Device $Device -DattoPlatform $DattoPlatform
 
 
         ## Build the device details section if enabled.
