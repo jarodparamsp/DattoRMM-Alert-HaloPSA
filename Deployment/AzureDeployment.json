@@ -10,7 +10,7 @@
             }
         },
         "DattoURL": {
-            "defaultValue": "https://merlot-api.centrastage.net",
+            "defaultValue": "https://zinfandel-api.centrastage.net",
             "type": "string",
             "metadata": {
                 "description": "Your Datto API URL"
@@ -80,21 +80,21 @@
             }
         },
         "HaloCustomAlertTypeField": {
-            "defaultValue": "252",
+            "defaultValue": "171",
             "type": "string",
             "metadata": {
                 "description": "The ID used for the CFDattoAlertType custom field added to tickets"
             }
         },
         "HaloTicketType": {
-            "defaultValue": "24",
+            "defaultValue": "21",
             "type": "string",
             "metadata": {
                 "description": "The ID of the ticket type you want to use for alerts in Halo"
             }
         },
         "HaloReocurringStatus": {
-            "defaultValue": "35",
+            "defaultValue": "1",
             "type": "string",
             "metadata": {
                 "description": "The ID of the status tickets should be set to if they reoccur"
