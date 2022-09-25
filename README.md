@@ -75,8 +75,6 @@ At the top click on Get Function Url. This is the URL you will need to enter in 
 Find the monitor you wish to edit in Datto RMM and set the URL as well as setting the body as below:
 ```
 {
-    "troubleshootingNote": "Please turn the computer off an on again to fix the issue",
-    "docURL": "https://docs.yourdomain.com/alert-specific-kb-article",
     "showDeviceDetails": true,
     "showDeviceStatus": true,
     "showAlertDetails": true,
