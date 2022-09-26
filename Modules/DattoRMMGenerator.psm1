@@ -27,18 +27,17 @@ function Get-DRMMAlertDetailsSection {
         $Sections,
         $Alert,
         $Device,
-        $AlertDocumentationURL,
-        $AlertTroubleshooting,
+        $SCURL,
         $DattoPlatform
     )
 
-    if ($AlertDocumentationURL) {
+    if ($SCURL) {
         $DocLinkHTML = @"
 <div style="display:inline-block; margin: 2px; max-width: 128px; min-width:100px; vertical-align:top; width:100%;"
     class="stack-column">
-    <a class="button-a button-a-primary" target="_blank" href="$AlertDocumentationURL"
-        style="background: #333333; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">View
-        Docs</a>
+    <a class="button-a button-a-primary" target="_blank" href="$SCURL"
+        style="background: #333333; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">Screen
+        Connect</a>
 </div>
 "@
     } else {
@@ -54,17 +53,12 @@ function Get-DRMMAlertDetailsSection {
             <h1
                 style="margin: 0 0 10px; font-size: 25px; line-height: 30px; font-weight: normal; $Colour">
                 $($Alert.priority) Alert - $($Device.siteName) - $($Device.hostname)</h1>
-            <h3>Component Monitor - [Failure Test Monitor] - Result: A Test Alert Was Created:</h3>
             <p style="margin: 0 0 10px;">$(Get-AlertDescription -Alert $Alert)
             $($Alert.diagnostics)
             </p>
             <br />
-            <h3>Troubleshooting:</h3>
-            <p style="margin: 0 0 10px;">$($AlertTroubleshooting)</p>
-            <br />
         </td>
     </tr>
-
     <tr>
         <td align="center" valign="top" style="font-size:0; background-color: #222222; padding-bottom: 20px;">
             $DocLinkHTML
@@ -98,7 +92,6 @@ function Get-DRMMAlertDetailsSection {
             </div>
         </td>
     </tr>
-
     
     <!-- Alert Details HTML End -->
 "@
@@ -123,6 +116,7 @@ function Get-DRMMDeviceDetailsSection {
         $Device,
         $Sections
     )
+	
 
 
     $DeviceDetailsHtml = @"
@@ -213,7 +207,6 @@ function Get-DRMMDeviceStatusSection {
 
     $DiskHTML = $DiskRaw -join ''
     $DeviceStatusHTML = @"
-
         <!-- Device Status : BEGIN -->
         <tr>
         <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;">
@@ -262,7 +255,6 @@ function Get-DRMMDeviceStatusSection {
             </td>
         </tr>
         <!-- Device Status : END -->        
-
 "@
 
     $DeviceStatusSection = @{
